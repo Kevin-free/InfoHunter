@@ -1,0 +1,110 @@
+@baseUrl = http://localhost:3000
+@apiKey = sk-curifi-681f503db283458395f8a5176a7499cc
+
+### Test POST /api/channels with API Key
+POST {{baseUrl}}/api/channels
+Authorization: {{apiKey}}
+Content-Type: application/json
+
+[
+  {
+    "channel_type": "telegram_group",
+    "platform_id": "123456789",
+    "metadata": {
+      "name": "Test Group 1",
+      "photo": "https://example.com/photo.jpg",
+      "about": "This is a test group"
+    },
+    "is_public": true
+  },
+  {
+    "channel_type": "telegram_group",
+    "platform_id": "987654321",
+    "metadata": {
+      "name": "Test Group 2",
+      "photo": "https://example.com/photo2.jpg"
+    },
+    "is_public": false
+  }
+]
+
+### Test POST /api/channels with JWT (replace with valid JWT)
+POST {{baseUrl}}/api/channels
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+Content-Type: application/json
+
+[
+  {
+    "channel_type": "telegram_group",
+    "platform_id": "123456789",
+    "metadata": {
+      "name": "Test Group 1",
+      "photo": "https://example.com/photo.jpg",
+      "about": "This is a test group"
+    },
+    "is_public": true
+  }
+]
+
+### Test GET /api/channels (with JWT)
+GET {{baseUrl}}/api/channels
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+### Test POST /api/messages/batch with API Key
+POST {{baseUrl}}/api/messages/batch
+Authorization: {{apiKey}}
+Content-Type: application/json
+
+{
+  "syncedMessages": [
+    {
+      "messageId": "msg_1001",
+      "channelId": "g2gqJjswUOSHTk12Mxo62Z5cln62:telegram_group:1439119893", 
+      "chatId": "1439119893",
+      "messageText": "这是一条测试消息",
+      "messageTimestamp": 1715731200,
+      "senderId": "sender_001",
+      "sender": {"firstName": "Test", "lastName": "User"},
+      "replyTo": "msg_999",
+      "isPinned": true,
+      "reactions": [{"emoji": "👍", "count": 5}]
+    },
+    {
+      "message_id": "msg_1002",
+      "channel_id": "g2gqJjswUOSHTk12Mxo62Z5cln62:telegram_group:1439119893",
+      "chat_id": "1439119893",
+      "message_text": "这是另一条测试消息，使用snake_case命名",
+      "message_timestamp": 1715731250,
+      "is_pinned": false
+    }
+  ]
+}
+
+### Test POST /api/messages/batch with JWT
+POST {{baseUrl}}/api/messages/batch
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+Content-Type: application/json
+
+{
+  "syncedMessages": [
+    {
+      "messageId": "msg_2001",
+      "channelId": "user456:telegram_group:987654321", 
+      "chatId": "987654321",
+      "messageText": "JWT认证的测试消息",
+      "messageTimestamp": 1715731300,
+      "mediaType": "photo",
+      "mediaUrl": "https://example.com/photo.jpg"
+    },
+    {
+      "messageId": "msg_2002",
+      "channelId": "user456:telegram_group:987654321", 
+      "chatId": "987654321",
+      "messageText": "带有按钮的测试消息",
+      "messageTimestamp": 1715731350,
+      "buttons": [
+        {"text": "查看详情", "url": "https://example.com/details"}
+      ]
+    }
+  ]
+}
