@@ -95,9 +95,9 @@ export const PaymentModal = ({
         headers: {
           'Content-Type': 'application/json'
         },
-        // 56: BSC
+        // 100: APT
         body: JSON.stringify({
-          chainId: 56,
+          chainId: 100,
           amount: amount,
           payerId: user?.userId,
           applicationId: paymentServiceApplicationId
@@ -263,7 +263,7 @@ export const PaymentModal = ({
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none bg-gradient-to-r from-primary/80 to-primary rounded-r-md">
                   <span className="text-sm font-medium text-primary-foreground">
-                    USDT
+                    APT
                   </span>
                 </div>
               </div>
