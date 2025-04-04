@@ -203,11 +203,15 @@ export function Sidebar() {
       <div className="flex flex-col h-full">
         {/* Logo Section */}
         <div className="px-2 py-6">
-          <Link href="/" className="flex items-center">
-            <Logo1Icon className="w-10 h-10 shrink-0" />
+          <Link href="/" className="flex items-center gap-2 px-2">
+            <img
+              src="/assets/infohunter_logo.png"
+              alt="logo"
+              className="w-5 h-auto shrink-0"
+            />
             <span className="truncate transition-opacity duration-300 group-[.collapsed]:opacity-0 text-xl">
-              <span className="font-bold">MY</span>
-              <span className="font-light">STA</span>
+              <span className="font-bold">Info</span>
+              <span className="font-light">Hunter</span>
             </span>
           </Link>
         </div>
