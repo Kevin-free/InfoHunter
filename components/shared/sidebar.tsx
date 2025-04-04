@@ -117,13 +117,7 @@ export function Sidebar() {
         },
         {
           href: '/subscriber/workflows',
-          label: 'Workflows',
-          icon: Workflow,
-          show: true
-        },
-        {
-          href: '/subscriber/agents',
-          label: 'Agents(Coming Soon)',
+          label: 'Agents',
           icon: Bot,
           show: true
         }
@@ -164,13 +158,7 @@ export function Sidebar() {
           },
           {
             href: '/subscriber/workflows',
-            label: 'Workflows',
-            icon: Workflow,
-            show: true
-          },
-          {
-            href: '/subscriber/agents',
-            label: 'Agents(Coming Soon)',
+            label: 'Agents',
             icon: Bot,
             show: true
           }
